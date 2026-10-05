@@ -1,0 +1,9 @@
+# course PDFs stay local
+/*.pdf
+.venv/
+__pycache__/
+.DS_Store
+*.pt
+*.bin
+*.pkl
+**/data/**/input.txt
