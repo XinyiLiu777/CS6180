@@ -1,0 +1,122 @@
+Overriding config with config/hw1_base.py:
+# HW1 shared config: scaled-down train_shakespeare_char.py so all 6 runs fit on an 8GB M1 (MPS).
+# Every experiment uses this file and only overrides the architecture flag(s) under study.
+exec(open('config/train_shakespeare_char.py').read())
+
+device = 'mps'
+compile = False
+
+batch_size = 32
+block_size = 128
+n_layer = 4
+n_head = 4
+n_embd = 256
+dropout = 0.2
+
+learning_rate = 1e-3
+max_iters = 3000
+lr_decay_iters = 3000
+min_lr = 1e-4
+warmup_iters = 100
+
+eval_interval = 250
+eval_iters = 50
+log_interval = 50
+
+Overriding: out_dir = out-hw1/gqa
+Overriding: n_kv_head = 2
+tokens per iteration will be: 4,096
+found vocab_size = 65 (inside data/shakespeare_char/meta.pkl)
+Initializing a new model from scratch
+number of parameters: 2.90M
+/Users/lunaliu/Desktop/neu/26Fall/6180/hw1/nanoGPT/train.py:202: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler(enabled=(dtype == 'float16'))
+/Users/lunaliu/Desktop/neu/26Fall/6180/hw1/.venv/lib/python3.12/site-packages/torch/cuda/amp/grad_scaler.py:31: UserWarning: torch.cuda.amp.GradScaler is enabled, but CUDA is not available.  Disabling.
+  super().__init__(
+num decayed parameter tensors: 18, with 2,932,992 parameters
+num non-decayed parameter tensors: 9, with 2,304 parameters
+using fused AdamW: False
+step 0: train loss 4.2646, val loss 4.2589
+iter 0: loss 4.2573, time 6504.55ms, mfu -100.00%
+iter 50: loss 2.6533, time 246.65ms, mfu 0.10%
+iter 100: loss 2.5433, time 251.26ms, mfu 0.10%
+iter 150: loss 2.4500, time 248.35ms, mfu 0.10%
+iter 200: loss 2.3931, time 245.35ms, mfu 0.10%
+step 250: train loss 2.2558, val loss 2.2764
+saving checkpoint to out-hw1/gqa
+iter 250: loss 2.3133, time 6650.59ms, mfu 0.09%
+iter 300: loss 2.2346, time 261.40ms, mfu 0.09%
+iter 350: loss 2.1525, time 251.03ms, mfu 0.09%
+iter 400: loss 2.0791, time 254.60ms, mfu 0.09%
+iter 450: loss 2.0489, time 343.52ms, mfu 0.09%
+step 500: train loss 1.8874, val loss 2.0187
+saving checkpoint to out-hw1/gqa
+iter 500: loss 1.9852, time 6652.36ms, mfu 0.08%
+iter 550: loss 1.9340, time 272.91ms, mfu 0.08%
+iter 600: loss 1.8651, time 573.31ms, mfu 0.08%
+iter 650: loss 1.8354, time 273.88ms, mfu 0.08%
+iter 700: loss 1.8566, time 408.38ms, mfu 0.08%
+step 750: train loss 1.7234, val loss 1.8666
+saving checkpoint to out-hw1/gqa
+iter 750: loss 1.8178, time 6767.72ms, mfu 0.07%
+iter 800: loss 1.7833, time 271.53ms, mfu 0.07%
+iter 850: loss 1.7285, time 386.12ms, mfu 0.07%
+iter 900: loss 1.7766, time 299.55ms, mfu 0.07%
+iter 950: loss 1.7187, time 325.20ms, mfu 0.07%
+step 1000: train loss 1.6170, val loss 1.8181
+saving checkpoint to out-hw1/gqa
+iter 1000: loss 1.6919, time 5250.02ms, mfu 0.07%
+iter 1050: loss 1.6702, time 247.51ms, mfu 0.07%
+iter 1100: loss 1.6841, time 253.57ms, mfu 0.07%
+iter 1150: loss 1.6694, time 252.77ms, mfu 0.08%
+iter 1200: loss 1.6207, time 611.55ms, mfu 0.07%
+step 1250: train loss 1.5554, val loss 1.7407
+saving checkpoint to out-hw1/gqa
+iter 1250: loss 1.6862, time 5320.79ms, mfu 0.07%
+iter 1300: loss 1.6964, time 300.42ms, mfu 0.07%
+iter 1350: loss 1.5868, time 356.92ms, mfu 0.07%
+iter 1400: loss 1.6795, time 337.57ms, mfu 0.07%
+iter 1450: loss 1.6240, time 394.98ms, mfu 0.07%
+step 1500: train loss 1.4962, val loss 1.6962
+saving checkpoint to out-hw1/gqa
+iter 1500: loss 1.5235, time 6743.18ms, mfu 0.06%
+iter 1550: loss 1.5437, time 248.69ms, mfu 0.07%
+iter 1600: loss 1.6305, time 265.08ms, mfu 0.07%
+iter 1650: loss 1.6401, time 308.72ms, mfu 0.07%
+iter 1700: loss 1.5558, time 386.89ms, mfu 0.07%
+step 1750: train loss 1.4515, val loss 1.6324
+saving checkpoint to out-hw1/gqa
+iter 1750: loss 1.5796, time 5538.88ms, mfu 0.06%
+iter 1800: loss 1.6106, time 250.98ms, mfu 0.07%
+iter 1850: loss 1.5385, time 251.26ms, mfu 0.07%
+iter 1900: loss 1.5890, time 260.26ms, mfu 0.07%
+iter 1950: loss 1.5463, time 248.44ms, mfu 0.07%
+step 2000: train loss 1.4274, val loss 1.6273
+saving checkpoint to out-hw1/gqa
+iter 2000: loss 1.5102, time 4910.12ms, mfu 0.07%
+iter 2050: loss 1.5073, time 255.45ms, mfu 0.07%
+iter 2100: loss 1.5124, time 250.89ms, mfu 0.07%
+iter 2150: loss 1.5231, time 252.84ms, mfu 0.08%
+iter 2200: loss 1.5043, time 249.44ms, mfu 0.08%
+step 2250: train loss 1.3953, val loss 1.5969
+saving checkpoint to out-hw1/gqa
+iter 2250: loss 1.4880, time 4814.96ms, mfu 0.07%
+iter 2300: loss 1.4568, time 246.78ms, mfu 0.07%
+iter 2350: loss 1.4831, time 246.48ms, mfu 0.08%
+iter 2400: loss 1.4928, time 258.40ms, mfu 0.08%
+iter 2450: loss 1.4252, time 249.73ms, mfu 0.08%
+step 2500: train loss 1.3918, val loss 1.5637
+saving checkpoint to out-hw1/gqa
+iter 2500: loss 1.4639, time 4813.74ms, mfu 0.07%
+iter 2550: loss 1.4440, time 247.18ms, mfu 0.08%
+iter 2600: loss 1.4019, time 237.50ms, mfu 0.08%
+iter 2650: loss 1.4477, time 242.08ms, mfu 0.08%
+iter 2700: loss 1.4356, time 253.84ms, mfu 0.08%
+step 2750: train loss 1.3705, val loss 1.5739
+iter 2750: loss 1.4935, time 4871.70ms, mfu 0.08%
+iter 2800: loss 1.4702, time 264.99ms, mfu 0.08%
+iter 2850: loss 1.4501, time 259.87ms, mfu 0.08%
+iter 2900: loss 1.4198, time 259.09ms, mfu 0.08%
+iter 2950: loss 1.4069, time 257.56ms, mfu 0.08%
+step 3000: train loss 1.3679, val loss 1.5674
+iter 3000: loss 1.4687, time 4636.58ms, mfu 0.07%

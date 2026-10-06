@@ -118,3 +118,6 @@ iter 2800: loss 1.4600, time 179.12ms, mfu 0.12%
 iter 2850: loss 1.4424, time 190.98ms, mfu 0.12%
 iter 2900: loss 1.4343, time 241.76ms, mfu 0.12%
 iter 2950: loss 1.4911, time 252.44ms, mfu 0.12%
+step 3000: train loss 1.3585, val loss 1.5602
+saving checkpoint to out-hw1/baseline
+iter 3000: loss 1.4667, time 5214.30ms, mfu 0.11%
