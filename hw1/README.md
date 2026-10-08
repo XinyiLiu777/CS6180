@@ -113,3 +113,5 @@ Run with `cd nanoGPT && python data/shakespeare_char/prepare.py && ./run_hw1.sh`
 
 **4.5 GQA.** Keys and values are projected to 2 heads, and each KV head is shared by 2 query heads (`repeat_interleave`). This cuts attention K/V parameters and the KV cache in half (−8% total parameters). Val loss is 1.567 versus 1.560: almost no quality loss for a smaller model and cheaper inference.
 ![gqa](plots/q4_5_gqa.png)
+
+AI Use Disclosure. I used Claude (Anthropic, via Claude Code) to help me understand each question and to discuss solution approaches. I wrote the final answers to Q1–Q3 myself. For Q4, Claude implemented the model variants and wrote the run and plotting scripts based on the design we discussed, and ran the experiments on my laptop. I reviewed all code and results.
